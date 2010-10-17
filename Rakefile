@@ -5,14 +5,15 @@ rescue LoadError
   abort '### Please install the "bones" gem ###'
 end
 
-task :default => 'test:run'
-task 'gem:release' => 'test:run'
-
 Bones {
-  name  'bones-rubyforge'
-  authors  'Tim Pease'
-  email  'tim.pease@gmail.com'
-  url  'http://github.com/TwP/bones-rubyforge'
+  name         'bones-rubyforge'
+  authors      'Tim Pease'
+  email        'tim.pease@gmail.com'
+  url          'http://github.com/TwP/bones-rubyforge'
   ignore_file  '.gitignore'
+
+  depend_on    'bones'
+
+  use_gmail
 }
 
